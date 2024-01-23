@@ -1,11 +1,11 @@
 /* eslint-disable */
 export default {
-  displayName: 'tg-bot-server',
+  displayName: 'server',
   preset: '../../jest.preset.js',
   testEnvironment: 'node',
   transform: {
-    '^.+\\.[tj]s$': ['ts-jest', { tsconfig: '<rootDir>/tsconfig.spec.json' }]
+    '^.+\\.[tj]s$': ['ts-jest', { tsconfig: '<rootDir>/tsconfig.spec.json' }],
   },
   moduleFileExtensions: ['ts', 'js', 'html'],
-  coverageDirectory: '../../coverage/apps/tg-bot-server'
+  coverageDirectory: '../../coverage/apps/server',
 };

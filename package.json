@@ -27,7 +27,7 @@
     "@nx/vite": "17.2.8",
     "@nx/vue": "17.2.8",
     "@nx/webpack": "17.2.8",
-    "@nx/workspace": "17.2.8",
+    "@nx/workspace": "^17.2.8",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.7",
     "@svgr/webpack": "^8.0.1",
     "@swc-node/register": "~1.6.7",

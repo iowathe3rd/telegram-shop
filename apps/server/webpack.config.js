@@ -1,5 +1,4 @@
-
-const { composePlugins, withNx} = require('@nx/webpack');
+const { composePlugins, withNx } = require('@nx/webpack');
 
 // Nx plugins for webpack.
 module.exports = composePlugins(
@@ -12,4 +11,3 @@ module.exports = composePlugins(
     return config;
   }
 );
-

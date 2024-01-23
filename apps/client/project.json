@@ -1,8 +1,8 @@
 {
-  "name": "tg-bot",
+  "name": "client",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "sourceRoot": "apps/tg-bot/src",
+  "sourceRoot": "apps/client/src",
   "targets": {
     "lint": {
       "executor": "@nx/eslint:lint",
@@ -13,7 +13,7 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/apps/tg-bot",
+        "outputPath": "dist/apps/client",
         "skipTypeCheck": true
       },
       "configurations": {
@@ -29,15 +29,15 @@
       "executor": "@nx/vite:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "tg-bot:build"
+        "buildTarget": "client:build"
       },
       "configurations": {
         "development": {
-          "buildTarget": "tg-bot:build:development",
+          "buildTarget": "client:build:development",
           "hmr": true
         },
         "production": {
-          "buildTarget": "tg-bot:build:production",
+          "buildTarget": "client:build:production",
           "hmr": false
         }
       }
@@ -46,14 +46,14 @@
       "executor": "@nx/vite:preview-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "tg-bot:build"
+        "buildTarget": "client:build"
       },
       "configurations": {
         "development": {
-          "buildTarget": "tg-bot:build:development"
+          "buildTarget": "client:build:development"
         },
         "production": {
-          "buildTarget": "tg-bot:build:production"
+          "buildTarget": "client:build:production"
         }
       }
     },
@@ -61,13 +61,13 @@
       "executor": "@nx/vite:test",
       "outputs": ["{options.reportsDirectory}"],
       "options": {
-        "reportsDirectory": "../../coverage/apps/tg-bot"
+        "reportsDirectory": "../../coverage/apps/client"
       }
     },
     "serve-static": {
       "executor": "@nx/web:file-server",
       "options": {
-        "buildTarget": "tg-bot:build"
+        "buildTarget": "client:build"
       }
     }
   }
