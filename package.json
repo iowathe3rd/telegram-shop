@@ -51,6 +51,7 @@
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-cypress": "^2.13.4",
     "eslint-plugin-vue": "^9.16.1",
+    "husky": "^8.0.3",
     "jest": "^29.4.1",
     "jest-environment-node": "^29.4.1",
     "jsdom": "~22.1.0",
@@ -66,5 +67,10 @@
     "vite": "^5.0.0",
     "vitest": "~0.34.6",
     "vue-tsc": "^1.8.8"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "nx run-many --all --target=lint --quiet"
+    }
   }
 }
