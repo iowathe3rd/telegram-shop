@@ -1,27 +1,30 @@
-import type { Config } from 'tailwindcss'
-import {fontFamily} from "tailwindcss/defaultTheme"
+import type { Config } from 'tailwindcss';
+import { fontFamily } from 'tailwindcss/defaultTheme';
+
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{jsx,tsx}",
-  ],
+  content: ['./index.html', './src/**/*.{jsx,tsx}'],
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-roboto)', ...fontFamily.sans],
-        mono: ['var(--font-roboto-mono)', ...fontFamily.mono],
+        sans: ['var(--tg-theme-roboto)', ...fontFamily.sans],
+        mono: ['var(--tg-theme-roboto-mono)', ...fontFamily.mono],
       },
       colors: {
-        'tg-white': 'var(--telegram-bg-color)',
-        'tg-black': 'var(--telegram-text-color)',
-        'tg-hint': 'var(--telegram-hint-color)',
-        'tg-link': 'var(--telegram-link-color)',
-        'tg-primary': 'var(--telegram-button-color)',
-        'tg-primary-text': 'var(--telegram-button-text-color)',
-        'tg-secondary-white': 'var(--telegram-secondary-bg-color)',
+        'tg-white': 'var(--tg-theme-bg-color)',
+        'tg-black': 'var(--tg-theme-text-color)',
+        'tg-hint': 'var(--tg-theme-hint-color)',
+        'tg-link': 'var(--tg-theme-link-color)',
+        'tg-primary': 'var(--tg-theme-button-color)',
+        'tg-primary-text': 'var(--tg-theme-button-text-color)',
+        'tg-secondary-white': 'var(--tg-theme-secondary-bg-color)',
+        'tg-header-bg': 'var(--tg-theme-header-bg-color)', // New in Bot API 7.0+
+        'tg-accent-text': 'var(--tg-theme-accent-text-color)', // New in Bot API 7.0+
+        'tg-section-bg': 'var(--tg-theme-section-bg-color)', // New in Bot API 7.0+
+        'tg-section-header-text': 'var(--tg-theme-section-header-text-color)', // New in Bot API 7.0+
+        'tg-subtitle-text': 'var(--tg-theme-subtitle-text-color)', // New in Bot API 7.0+
+        'tg-destructive-text': 'var(--tg-theme-destructive-text-color)', // New in Bot API 7.0+
       },
     },
   },
   plugins: [],
-} satisfies Config
-
+} as Config;
