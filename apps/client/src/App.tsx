@@ -1,8 +1,12 @@
+import ProductGrid from './components/ProductGrid';
+import { ThemeProvider } from '@mui/material';
+import { theme } from './mui/theme';
 
 export function App() {
   return (
-    <div>
-    </div>
+    <ThemeProvider theme={theme}>
+      <ProductGrid/>
+    </ThemeProvider>
   );
 }
 
