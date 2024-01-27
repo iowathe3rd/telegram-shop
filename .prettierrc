@@ -1,13 +1,13 @@
 {
-  "singleQuote": true,
-  "plugins": [],
-  "printWidth": 100,
-  "useTabs": true,
-  "tabWidth": 4,
-  "singleAttributePerLine": true,
-  "semi": true,
-  "bracketSameLine": false,
-  "jsxSingleQuote": true,
-  "cursorOffset": -1,
-  "bracketSpacing": true
+	"singleQuote": true,
+	"plugins": [],
+	"printWidth": 100,
+	"useTabs": true,
+	"tabWidth": 4,
+	"singleAttributePerLine": true,
+	"semi": true,
+	"bracketSameLine": false,
+	"jsxSingleQuote": true,
+	"cursorOffset": -1,
+	"bracketSpacing": true
 }
