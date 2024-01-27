@@ -40,5 +40,7 @@ Thumbs.db
 
 .nx/cache
 
+# Env vars
 /apps/server/.env
 /apps/client/.env
+.env
