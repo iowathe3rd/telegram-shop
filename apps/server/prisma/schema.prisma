@@ -1,0 +1,30 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Product {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  price       Float
+  count       Int
+  images      String[]
+  categoryId  String
+  Order       Order?   @relation(fields: [orderId], references: [id])
+  orderId     String?
+}
+
+model Order {
+  id         String    @id @default(uuid())
+  telegramId String    // Идентификатор Telegram пользователя
+  products   Product[] // Товары в корзине
+  createdAt  DateTime  @default(now())
+}
