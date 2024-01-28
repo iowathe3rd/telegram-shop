@@ -1,24 +1,42 @@
 import { Injectable } from '@nestjs/common';
+import { CreateProductDto } from './dto/create-product.dto';
+import { Product } from './entities/product.entity';
+import { prisma } from '../db';
+import { UpdateProductDto } from './dto/update-product.dto';
+
 @Injectable()
 export class ProductsService {
-	create() {
-		return 'This action adds a new product';
+	async create(createProductDto: CreateProductDto): Promise<Product> {
+		return prisma.product.create({
+			data: createProductDto,
+		});
 	}
 
-	findAll() {
-		return `This action returns all products`;
+	async findAll(): Promise<Product[]> {
+		return prisma.product.findMany();
 	}
 
-	findOne(id: number) {
-		return `This action returns a #${id} product`;
+	async findOne(id: string): Promise<Product | null> {
+		// Изменяем тип возвращаемого значения на Promise<Product | null>
+		return prisma.product.findUnique({
+			where: { id: id }, // Преобразуем id в число
+		});
 	}
 
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	update(id: number) {
-		return `This action updates a #${id} product`;
+	async remove(id: string) {
+		return prisma.product.delete({
+			where: {
+				id: id,
+			},
+		});
 	}
 
-	remove(id: number) {
-		return `This action removes a #${id} product`;
+	async update(id: string, updateProductDto: UpdateProductDto): Promise<Product> {
+		return prisma.product.update({
+			where: {
+				id: id,
+			},
+			data: updateProductDto,
+		});
 	}
 }
