@@ -15,9 +15,6 @@ export class BaseProductDto {
 
 	@ApiProperty({ example: ['image1.jpg', 'image2.jpg'] })
 	images: string[];
-
-	@ApiProperty({ example: 'category-id-123' })
-	categoryId: string;
 }
 
 export class CreateProductDto extends BaseProductDto {}

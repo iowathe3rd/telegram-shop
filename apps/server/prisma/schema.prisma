@@ -18,7 +18,6 @@ model Product {
   price       Float
   count       Int
   images      String[]
-  categoryId  String
   Order       Order?   @relation(fields: [orderId], references: [id])
   orderId     String?
 }
@@ -28,4 +27,10 @@ model Order {
   telegramId String    // Идентификатор Telegram пользователя
   products   Product[] // Товары в корзине
   createdAt  DateTime  @default(now())
+}
+model AuthDevice {
+  id           String    @id @default(uuid())
+  telegramId   String    @unique
+  metadata     Json      // Дополнительные метаданные устройства
+  createdAt    DateTime  @default(now())
 }

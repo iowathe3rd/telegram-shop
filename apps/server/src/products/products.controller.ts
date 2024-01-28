@@ -9,6 +9,7 @@ import {
 	HttpException,
 	Res,
 	Patch,
+	UseGuards,
 } from '@nestjs/common';
 import { ProductsService } from './products.service';
 import { CreateProductDto } from './dto/create-product.dto';
@@ -22,12 +23,14 @@ import {
 	ApiNotFoundResponse,
 } from '@nestjs/swagger';
 import { UpdateProductDto } from './dto/update-product.dto';
+import { MasterAuthTokenGuard } from '../guards/token.guard';
 
 @ApiTags('products')
 @Controller('products')
 export class ProductsController {
 	constructor(private readonly productsService: ProductsService) {}
 
+	@UseGuards(MasterAuthTokenGuard)
 	@Post()
 	@ApiResponse({
 		status: HttpStatus.CREATED,
@@ -45,6 +48,7 @@ export class ProductsController {
 		}
 	}
 
+	@UseGuards(MasterAuthTokenGuard)
 	@Patch(':id')
 	@ApiResponse({
 		status: HttpStatus.OK,
@@ -100,6 +104,7 @@ export class ProductsController {
 		}
 	}
 
+	@UseGuards(MasterAuthTokenGuard)
 	@Delete(':id')
 	@ApiResponse({
 		status: HttpStatus.OK,
