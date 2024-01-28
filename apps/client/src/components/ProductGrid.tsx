@@ -15,7 +15,7 @@ const ProductGrid: React.FC = () => {
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const response = await fetch('https://fakestoreapi.com/products?limit=10');
+				const response = await fetch('https://localhost:3000/products');
 				if (!response.ok) {
 					return new Error('Failed to fetch products');
 				}
