@@ -1,8 +1,8 @@
 import { Model } from 'miragejs';
 import { ModelDefinition } from 'miragejs/-types';
-import { Product } from '../../types/api/product';
+import { ProductResponse } from '../../types/api/productResponse';
 
-const ProductModel: ModelDefinition<Product> = Model.extend({});
+const ProductModel: ModelDefinition<ProductResponse> = Model.extend({});
 
 export const models = {
 	product: ProductModel,

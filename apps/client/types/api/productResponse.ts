@@ -1,3 +1,7 @@
+export interface ProductResponse {
+	products: Product[];
+}
+
 export interface Product {
 	id: string;
 	title: string;

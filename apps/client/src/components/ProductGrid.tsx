@@ -1,16 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import ProductItem from './ProductItem';
-
-interface apiresponse {
-	title: string;
-	price: number;
-	description: string;
-	id: string;
-	image: string;
-}
+import { Product, ProductResponse } from '../../types/api/productResponse';
 
 const ProductGrid: React.FC = () => {
-	const [data, setData] = useState<apiresponse[]>([]);
+	const [data, setData] = useState<Product[]>([]);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -19,8 +12,8 @@ const ProductGrid: React.FC = () => {
 				if (!response.ok) {
 					return new Error('Failed to fetch products');
 				}
-				const products: apiresponse[] = await response.json();
-				setData(products);
+				const json = (await response.json()) as ProductResponse;
+				setData(json.products);
 			} catch (error) {
 				console.error('Error fetching products:', error);
 			}
@@ -29,19 +22,24 @@ const ProductGrid: React.FC = () => {
 		fetchData();
 	}, []);
 	return (
-		<>
+		<div
+			className={
+				'w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 place-items-center'
+			}
+		>
 			{data.map((value, index) => {
 				return (
 					<ProductItem
+						key={value.id}
 						title={value.title}
 						description={value.description}
 						id={value.id}
 						price={value.price}
-						imgLink={value.image}
+						imgLink={value.images[0]}
 					/>
 				);
 			})}
-		</>
+		</div>
 	);
 };
 
