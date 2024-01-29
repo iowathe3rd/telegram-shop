@@ -4,17 +4,10 @@ import { useBasketStore } from '../../store';
 const NavBar: React.FC = () => {
 	const { products, totalPrice } = useBasketStore();
 	return (
-		<div className='navbar bg-base-200'>
-			<div className='flex-1'>
-				<a
-					className='btn btn-ghost text-xl'
-					href={'#'}
-				>
-					ChaosCult
-				</a>
-			</div>
+		<div className='navbar bg-base-100'>
+			<div className='flex-1'></div>
 			<div className='flex-none'>
-				<div className='dropdown dropdown-end'>
+				<div className='dropdown dropdown-end dropdown-hover'>
 					<div
 						tabIndex={0}
 						role='button'
@@ -40,13 +33,18 @@ const NavBar: React.FC = () => {
 					</div>
 					<div
 						tabIndex={0}
-						className='mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow'
+						className='mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-content shadow'
 					>
 						<div className='card-body'>
 							<span className='font-bold text-lg'>{products.length} Items</span>
 							<span className='text-info'>Subtotal: ${totalPrice()}</span>
 							<div className='card-actions'>
-								<button className='btn btn-primary btn-block'>View cart</button>
+								<button
+									className='btn btn-primary btn-block'
+									onClick={() => window.basket_modal.show()}
+								>
+									View cart
+								</button>
 							</div>
 						</div>
 					</div>

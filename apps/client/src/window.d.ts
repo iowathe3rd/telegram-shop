@@ -5,5 +5,6 @@ declare global {
 		Telegram: {
 			WebApp: WebApp;
 		};
+		basket_modal: HTMLDialogElement;
 	}
 }

@@ -3,6 +3,7 @@ import Layout from './components/Layout';
 import { startMirage } from '../mirage/config';
 import { useEffect } from 'react';
 import { useBasketStore } from './store';
+import BasketModal from './components/BasketModal';
 
 startMirage();
 
@@ -16,6 +17,7 @@ export function App() {
 	return (
 		<Layout>
 			<ProductGrid />
+			<BasketModal />
 		</Layout>
 	);
 }
