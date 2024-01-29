@@ -31,11 +31,7 @@ const ProductGrid: React.FC = () => {
 				return (
 					<ProductItem
 						key={value.id}
-						title={value.title}
-						description={value.description}
-						id={value.id}
-						price={value.price}
-						imgLink={value.images[0]}
+						product={value}
 					/>
 				);
 			})}
