@@ -41,6 +41,14 @@ export interface WebApp {
 	 * An object for controlling the main button, which is displayed at the bottom of the Web App in the Telegram interface.
 	 */
 	MainButton: MainButton;
+
+	HapticFeedback: HapticFeedback;
+
+	CloudStorage: CloudStorage;
+
+	PopupButton: PopupButton;
+
+	PopupParams: PopupParams;
 	/**
 	 * A method that sets the app event handler.
 	 */
@@ -49,6 +57,7 @@ export interface WebApp {
 	 * 	A method that deletes a previously set event handler.
 	 */
 	offEvent(eventType: EventType, eventHandler: () => void): void;
+
 	/**
 	 * A method used to send data to the bot.
 	 */
@@ -67,37 +76,38 @@ export interface WebApp {
 	close(): void;
 }
 
+interface PopupButton {
+	id?: string;
+	type?: 'default' | 'ok' | 'close' | 'cancel' | 'destructive';
+	text?: string;
+}
+
+interface PopupParams {
+	title?: string;
+	message: string;
+	buttons?: PopupButton[];
+}
+
+interface HapticFeedback {
+	impactOccurred(style: 'light' | 'medium' | 'heavy' | 'rigid' | 'soft'): HapticFeedback;
+	notificationOccurred(type: 'error' | 'success' | 'warning'): HapticFeedback;
+	selectionChanged(): HapticFeedback;
+}
+
 interface ThemeParams {
-	/**
-	 * Background color in the #RRGGBB format.
-	 * Also available as the CSS variable var(--tg-theme-bg-color).
-	 */
-	bg_color?: string;
-	/**
-	 * Main text color in the #RRGGBB format.
-	 * Also available as the CSS variable var(--tg-theme-text-color).
-	 */
-	text_color?: string;
-	/**
-	 * Hint text color in the #RRGGBB format.
-	 * Also available as the CSS variable var(--tg-theme-hint-color).
-	 */
-	hint_color?: string;
-	/**
-	 * Link color in the #RRGGBB format.
-	 * Also available as the CSS variable var(--tg-theme-link-color).
-	 */
-	link_color?: string;
-	/**
-	 * Button color in the #RRGGBB format.
-	 * Also available as the CSS variable var(--tg-theme-button-color).
-	 */
-	button_color?: string;
-	/**
-	 * Button text color in the #RRGGBB format.
-	 * Also available as the CSS variable var(--tg-theme-button-text-color).
-	 */
-	button_text_color?: string;
+	bg_color?: string; // Background color
+	text_color?: string; // Main text color
+	hint_color?: string; // Hint text color
+	link_color?: string; // Link color
+	button_color?: string; // Button color
+	button_text_color?: string; // Button text color
+	secondary_bg_color?: string; // Secondary background color
+	header_bg_color?: string; // Header background color
+	accent_text_color?: string; // Accent text color
+	section_bg_color?: string; // Background color for sections
+	section_header_text_color?: string; // Header text color for sections
+	subtitle_text_color?: string; // Subtitle text color
+	destructive_text_color?: string; // Text color for destructive actions
 }
 
 interface WebAppInitData {
@@ -242,4 +252,13 @@ interface MainButtonParams {
 	 * Show the button.
 	 */
 	is_visible?: boolean;
+}
+
+interface CloudStorage {
+	setItem(key: string, value: string, callback?: (error: Error, success: boolean) => void): void;
+	getItem(key: string, callback: (error: Error, value: string) => void): void;
+	getItems(keys: string[], callback: (error: Error, values: string[]) => void): void;
+	removeItem(key: string, callback?: (error: Error, success: boolean) => void): void;
+	removeItems(keys: string[], callback?: (error: Error, success: boolean) => void): void;
+	getKeys(callback: (error: Error, keys: string[]) => void): void;
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useBasketStore } from '../store';
 import { Product } from '../../types/api/productResponse';
+import Button from './common/Button';
 
 export interface ProductItemsProps {
 	product: Product;
@@ -19,15 +20,10 @@ const ProductItem: React.FC<ProductItemsProps> = (props) => {
 			</figure>
 			<div className='card-body items-center text-center'>
 				<h2 className='card-title'>{props.product.title}</h2>
-				<h2 className='card-title'>{props.product.price}</h2>
+				<h2 className='card-title text-md'>{props.product.price} ₸</h2>
 				<p className={'text-sm font-light text-hint'}>{props.product.description}</p>
 				<div className='card-actions'>
-					<button
-						className='btn btn-primary'
-						onClick={() => push(props.product)}
-					>
-						To the basket
-					</button>
+					<Button onClick={() => push(props.product)}>To the basket</Button>
 				</div>
 			</div>
 		</div>

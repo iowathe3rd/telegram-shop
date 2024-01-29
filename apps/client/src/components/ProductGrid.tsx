@@ -24,7 +24,7 @@ const ProductGrid: React.FC = () => {
 	return (
 		<div
 			className={
-				'w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 place-items-center'
+				'w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 place-items-center p-4'
 			}
 		>
 			{data.map((value, index) => {

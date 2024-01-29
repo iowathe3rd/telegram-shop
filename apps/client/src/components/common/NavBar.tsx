@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useBasketStore } from '../../store';
 
 const NavBar: React.FC = () => {
 	const { products, totalPrice } = useBasketStore();
+	useEffect(() => {
+		console.log(window.Telegram.WebApp.HapticFeedback.impactOccurred('rigid'));
+	}, []);
 	return (
-		<div className='navbar bg-base-100'>
+		<div className='navbar tg-header-bg-colors'>
 			<div className='flex-1'></div>
 			<div className='flex-none'>
 				<div className='dropdown dropdown-end dropdown-hover'>
@@ -13,6 +16,7 @@ const NavBar: React.FC = () => {
 						role='button'
 						className='btn btn-ghost btn-circle'
 					>
+						<button></button>
 						<div className='indicator'>
 							<svg
 								xmlns='http://www.w3.org/2000/svg'
@@ -33,7 +37,7 @@ const NavBar: React.FC = () => {
 					</div>
 					<div
 						tabIndex={0}
-						className='mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-content shadow'
+						className='mt-3 z-[1] card card-compact dropdown-content tg-section-bg-color w-52 shadow'
 					>
 						<div className='card-body'>
 							<span className='font-bold text-lg'>{products.length} Items</span>

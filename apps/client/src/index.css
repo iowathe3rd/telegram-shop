@@ -5,3 +5,72 @@
 :root {
   color: var(--tg-theme-text-color);
 }
+body {
+  background: var(--tg-theme-secondary-bg-color);
+}
+
+
+@layer components {
+  .btn-tg {
+    @apply btn;
+    background: var(--tg-theme-button-color);
+    color: var(--tg-theme-button-text-color)
+  }
+  .btn-tg:hover {
+    background: var(--tg-theme-button-color);
+  }
+}
+
+/* Классы CSS с префиксом "tg" для имплементации цветов */
+.tg-bg-color {
+  background-color: var(--tg-theme-bg-color);
+}
+
+.tg-text-color {
+  color: var(--tg-theme-text-color);
+}
+
+.tg-hint-color {
+  color: var(--tg-theme-hint-color);
+}
+
+.tg-link-color {
+  color: var(--tg-theme-link-color);
+}
+
+.tg-button-color {
+  background-color: var(--tg-theme-button-color);
+}
+
+.tg-button-text-color {
+  color: var(--tg-theme-button-text-color);
+}
+
+.tg-secondary-bg-color {
+  background-color: var(--tg-theme-secondary-bg-color);
+}
+
+.tg-header-bg-color {
+  background-color: var(--tg-theme-header-bg-color);
+}
+
+.tg-accent-text-color {
+  color: var(--tg-theme-accent-text-color);
+}
+
+.tg-section-bg-color {
+  background-color: var(--tg-theme-section-bg-color);
+}
+
+.tg-section-header-text-color {
+  color: var(--tg-theme-section-header-text-color);
+}
+
+.tg-subtitle-text-color {
+  color: var(--tg-theme-subtitle-text-color);
+}
+
+.tg-destructive-text-color {
+  color: var(--tg-theme-destructive-text-color);
+}
+
