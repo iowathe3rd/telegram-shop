@@ -8,11 +8,11 @@ interface BasketState {
 	totalPrice: () => number;
 }
 
-export const useBasketStore = create<BasketState>((set) => {
+export const useBasketStore = create<BasketState>((setState, getState) => {
 	const products = JSON.parse(localStorage.getItem('basketProducts') || '[]');
 
 	const push = (product: Product) => {
-		set((state) => {
+		setState((state) => {
 			const updatedProducts = [...state.products, product];
 			localStorage.setItem('basketProducts', JSON.stringify(updatedProducts));
 			return { products: updatedProducts };
@@ -20,7 +20,7 @@ export const useBasketStore = create<BasketState>((set) => {
 	};
 
 	const deleteProduct = (productId: string) => {
-		set((state) => {
+		setState((state) => {
 			const updatedProducts = state.products.filter((p) => p.id !== productId);
 			localStorage.setItem('basketProducts', JSON.stringify(updatedProducts));
 			return { products: updatedProducts };
@@ -28,6 +28,7 @@ export const useBasketStore = create<BasketState>((set) => {
 	};
 
 	const totalPrice = () => {
+		const { products } = getState();
 		return products.reduce((total: number, product: Product) => total + product.price, 0);
 	};
 
