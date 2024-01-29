@@ -1,8 +1,8 @@
 import { Factory } from 'miragejs';
 import { faker } from '@faker-js/faker';
-import { ProductResponse } from '../../types/api/productResponse';
+import { Product } from '../../types/api/productResponse';
 
-export const productFactory = Factory.extend<ProductResponse>({
+export const productFactory = Factory.extend<Product>({
 	id: () => faker.string.uuid(),
 	count: () => faker.number.int({ min: 1, max: 10 }), // Генерация случайного числа от 1 до 10
 	images: () => [faker.image.url()],
