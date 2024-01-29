@@ -1,20 +1,18 @@
-import React, { useEffect } from 'react';
-import { useBasketStore } from '../../store';
-import BasketDropdown from '../BasketDropdown';
+import React from 'react';
+import { ShoppingCartIcon } from '@heroicons/react/24/outline';
+import { Link } from 'react-router-dom';
 
 const NavBar: React.FC = () => {
-	const { products, totalPrice } = useBasketStore();
-	useEffect(() => {
-		console.log(window.Telegram.WebApp.HapticFeedback.impactOccurred('rigid'));
-	}, []);
 	return (
 		<div className='navbar tg-header-bg-colors'>
 			<div className='flex-1'></div>
 			<div className='flex-none'>
-				<BasketDropdown
-					basketProducts={products}
-					totalPrice={totalPrice}
-				/>
+				<Link
+					to={'/basket'}
+					className={'btn btn-circle btn-ghost flex justify-center items-center p-2'}
+				>
+					<ShoppingCartIcon className={'w-full'} />
+				</Link>
 			</div>
 		</div>
 	);

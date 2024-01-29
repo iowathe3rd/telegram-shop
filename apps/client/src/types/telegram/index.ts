@@ -49,6 +49,8 @@ export interface WebApp {
 	PopupButton: PopupButton;
 
 	PopupParams: PopupParams;
+
+	BackButton: BackButton;
 	/**
 	 * A method that sets the app event handler.
 	 */
@@ -261,4 +263,29 @@ interface CloudStorage {
 	removeItem(key: string, callback?: (error: Error, success: boolean) => void): void;
 	removeItems(keys: string[], callback?: (error: Error, success: boolean) => void): void;
 	getKeys(callback: (error: Error, keys: string[]) => void): void;
+}
+
+interface BackButton {
+	/**
+	 * Shows whether the button is visible. Set to false by default.
+	 */
+	isVisible: boolean;
+	/**
+	 * A method that sets the button press event handler. An alias for Telegram.WebApp.onEvent('backButtonClicked', callback)
+	 * @param callback The callback function to be executed when the button is clicked.
+	 */
+	onClick(callback: () => void): BackButton;
+	/**
+	 * A method that removes the button press event handler. An alias for Telegram.WebApp.offEvent('backButtonClicked', callback)
+	 * @param callback The callback function to be removed from the button click event.
+	 */
+	offClick(callback: () => void): BackButton;
+	/**
+	 * A method to make the button active and visible.
+	 */
+	show(): BackButton;
+	/**
+	 * A method to hide the button.
+	 */
+	hide(): BackButton;
 }

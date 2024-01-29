@@ -17,7 +17,6 @@ export function startMirage() {
 	server.logging = true;
 
 	// Устанавливаем префикс для URL
-	console.log(import.meta);
 	server.urlPrefix = import.meta.env.API_URL ?? 'http://localhost:3000';
 
 	// Регистрируем эндпоинты

@@ -13,7 +13,7 @@ const Button: React.FC<ButtonProps> = (props) => {
 	};
 	return (
 		<button
-			className={'btn-tg'}
+			className={'btn-tg rounded-full'}
 			onClick={onClick}
 		>
 			{props.children}
