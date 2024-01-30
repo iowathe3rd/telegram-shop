@@ -1,14 +1,23 @@
 import React from 'react';
 import { useBasketStore } from '../store';
-import BasketCard from '../components/BasketCard';
+import ProductCardSmall from '../components/ProductCardSmall';
 
 const Basket: React.FC = () => {
-	const { products } = useBasketStore();
+	const { products, deleteAll } = useBasketStore();
 	return (
 		<div>
+			<div className={'flex justify-between items-center'}>
+				<span className={'font-bold'}>Shopping cart</span>
+				<button
+					className={'btn btn-link tg-link-color'}
+					onClick={() => deleteAll()}
+				>
+					Remove all
+				</button>
+			</div>
 			{products.map((value, index) => {
 				return (
-					<BasketCard
+					<ProductCardSmall
 						product={value}
 						key={index}
 					/>

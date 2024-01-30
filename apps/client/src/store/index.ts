@@ -6,6 +6,7 @@ interface BasketState {
 	push: (product: Product) => void;
 	delete: (productId: string) => void;
 	totalPrice: () => number;
+	deleteAll: () => void;
 }
 
 export const useBasketStore = create<BasketState>((setState, getState) => {
@@ -27,6 +28,12 @@ export const useBasketStore = create<BasketState>((setState, getState) => {
 		});
 	};
 
+	const deleteAll = () => {
+		setState((state) => {
+			return { products: [] };
+		});
+	};
+
 	const totalPrice = () => {
 		const { products } = getState();
 		return products.reduce((total: number, product: Product) => total + product.price, 0);
@@ -37,5 +44,6 @@ export const useBasketStore = create<BasketState>((setState, getState) => {
 		push,
 		delete: deleteProduct,
 		totalPrice,
+		deleteAll,
 	};
 });

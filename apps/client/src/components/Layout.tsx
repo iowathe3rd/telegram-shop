@@ -39,7 +39,7 @@ const Layout: React.FC<PropsWithChildren> = ({ children }) => {
 	return (
 		<>
 			<NavBar />
-			<div className='container mx-auto'>{children}</div>
+			<div className='container mx-auto px-4'>{children}</div>
 		</>
 	);
 };
