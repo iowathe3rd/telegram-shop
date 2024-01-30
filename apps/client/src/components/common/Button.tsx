@@ -6,22 +6,20 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 	size?: 'sm' | 'md' | 'lg';
 }
 
-const Button: React.FC<ButtonProps> = (props = { size: 'md', btnColor: 'tg' }) => {
+const Button: React.FC<ButtonProps> = ({ size = 'md', btnColor = 'tg', children, onClick }) => {
 	const tg = useTelegram();
 
-	const onClick: React.MouseEventHandler<HTMLButtonElement> = (event) => {
-		if (props.onClick) {
-			props.onClick(event);
-		}
+	const handleClick: React.MouseEventHandler<HTMLButtonElement> = (event) => {
+		onClick && onClick(event);
 		tg?.HapticFeedback.impactOccurred('medium');
 	};
 
 	return (
 		<button
-			className={`btn btn-${props.btnColor} btn-${props.size} rounded-full`}
-			onClick={onClick}
+			className={`btn btn-${btnColor} btn-${size} rounded-full`}
+			onClick={handleClick}
 		>
-			{props.children}
+			{children}
 		</button>
 	);
 };
