@@ -34,7 +34,7 @@
 		"@commitlint/config-conventional": "^18.6.0",
 		"@faker-js/faker": "^8.4.0",
 		"@nestjs/schematics": "^10.1.1",
-		"@nestjs/testing": "^10.0.2",
+		"@nestjs/testing": "^10.3.3",
 		"@nx/cypress": "17.2.8",
 		"@nx/eslint": "17.2.8",
 		"@nx/eslint-plugin": "17.2.8",
