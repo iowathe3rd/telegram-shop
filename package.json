@@ -84,7 +84,7 @@
 		"postcss": "^8.4.33",
 		"prettier": "^3.2.5",
 		"prisma": "^5.8.1",
-		"react-refresh": "^0.10.0",
+		"react-refresh": "^0.14.0",
 		"tailwindcss": "^3.4.1",
 		"ts-jest": "^29.1.0",
 		"ts-node": "10.9.1",
