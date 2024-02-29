@@ -16,7 +16,7 @@
 		"@nestjs/platform-express": "^10.0.2",
 		"@nestjs/swagger": "^7.2.0",
 		"@prisma/client": "^5.8.1",
-		"@swc/helpers": "~0.5.2",
+		"@swc/helpers": "~0.5.6",
 		"axios": "^1.0.0",
 		"invariant": "^2.2.4",
 		"node-telegram-bot-api": "^0.64.0",
